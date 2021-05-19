@@ -1,65 +1,90 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import { useState, useEffect } from 'react'
+import { projectAuth } from '../firebase/firebase'
+import Link from 'next/link'
+import styled from 'styled-components'
+import NavBar from '../components/NavBar'
 
-export default function Home() {
+
+const Wrapper = styled.div `
+padding: 16px;
+
+
+
+`
+const ButtonAsd = styled.button `
+
+  border: 1px solid red;
+  background-color: black;
+  color: white;
+  padding: 8px;
+`
+
+const StyledLabel = styled.label`
+  display:block;
+
+`
+
+
+const Login = () => {
+
+
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+
+  const loginFunc = () => {
+
+    console.log('click')
+
+    projectAuth.signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        console.log('login, userCredential: ', userCredential);
+        // Signed in
+        let user = userCredential.user;
+        console.log('login, user: ', user)
+        // ...
+      })
+      .catch((error) => {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log('error: ', errorMessage)
+      });
+  }
+
+
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <Wrapper>
+{/* 
+    <NavBar/> */}
+      <StyledLabel>Email</StyledLabel>
+      <input
+        type='text'
+        value={email}
+        onChange={event => setEmail(event.target.value)}
+      />
+      <StyledLabel>Password</StyledLabel>
+      <input
+        type='text'
+        value={password}
+        onChange={event => setPassword(event.target.value)}
+      />
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+      <ButtonAsd onClick={loginFunc}>Logga in</ButtonAsd>
+      {/* <button>Lägg till ny user</button> */}
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+      {/* <Link href="/addnewuser">
+          <a>Gå till addnewuser</a>
+        </Link>
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+        <Link href="/allequipment">
+          <a>Gå till allequipment</a>
+        </Link> */}
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
 
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
+    </Wrapper>
   )
+
 }
+
+export default Login

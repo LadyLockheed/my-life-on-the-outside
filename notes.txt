@@ -1,0 +1,2 @@
+starta localhost:
+npm run dev
