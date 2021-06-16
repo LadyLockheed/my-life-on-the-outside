@@ -3,6 +3,8 @@ import { useEffect } from 'react'
 import { projectAuth } from '../firebase/firebase'
 import NavBar from '../components/NavBar'
 
+import myApplication from './myApplication'
+
 
 function MyApp({ Component, pageProps }) {
 
@@ -14,6 +16,8 @@ function MyApp({ Component, pageProps }) {
   return (
 
     <>
+
+    <myApplication/>
       <NavBar />
       <Component {...pageProps} />
     </>

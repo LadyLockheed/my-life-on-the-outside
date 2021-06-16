@@ -5,37 +5,52 @@ import Link from 'next/link'
 const Header = styled.div `
 
     width: 100%;
+    background-color: violet;
+    padding: 0.5rem;
 `
 const StyledButton = styled.button `
     ${'' /* padding: 8px; */}
     margin-left: 16px;
-    padding: 8px 16px;
+    padding: 5px 10px;
 
 `
+const StyledLink = styled(Link)`
 
+    margin:0.2rem;
+    color:white;
+    text-decoration: none;
+
+
+` 
+const StyledALink=styled.a`
+    color:black;
+    cursor:pointer;
+    margin:1rem;
+
+    
+`
 
 
 const NavBar = ()=>{
 
     return (
         <Header>
-        <StyledButton>
+        
         <Link href="/">
-                <a>Login</a>
-            </Link>
-        </StyledButton>
+            <StyledALink>Login</StyledALink>
+        </Link>
+       
 
-        <StyledButton>
         <Link href="/addnewuser">
-                <a>Lägg till användare</a>
-            </Link>
-        </StyledButton>
+            <StyledALink>Lägg till användare</StyledALink>
+        </Link>
+      
 
-        <StyledButton>
+    
         <Link href="/allequipment">
-                <a>All utrustning</a>
-            </Link>
-        </StyledButton>
+            <StyledALink>All utrustning</StyledALink>
+        </Link>
+  
         
 
         </Header>
