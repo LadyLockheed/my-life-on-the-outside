@@ -1,6 +1,6 @@
-
+# My-life-on-the-outside-app
 This is a project sprung from my exam-project. The idea is the same. It is an app for managing packing lists during outdoor activities. Or more precise, before the outdoor activity. The purspose is to get an overview of all the equipment you have and the total weight of the packed backpack. 
-In my original project I used a little different stack than in this one. Here I wanted to take the oppurtunity to learn Firebase and NextJS. It is an ongoing project, but as for now it is put on ice due to lack of time. It is also not that much to see yet, heh. But my goal is to continue working with this project as I want to be able to use this app myself :) <br/>  
+In my original project I used a little different stack than in this one. Here I wanted to take the oppurtunity to learn *Firebase* and *NextJS*. It is an ongoing project, but as for now it is put on ice due to lack of time. It is also not that much to see yet, heh. But my goal is to continue working with this project as I want to be able to use this app myself :) <br/>  
 -LadyLockheed
 
 
